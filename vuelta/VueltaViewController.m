@@ -45,6 +45,7 @@
     self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", secondsPerLap];
     self.totalDistanceField.text = [NSString stringWithFormat:@"%i", totalDistance];
     self.estimatedTimeHalfMarathonField.text = [NSString stringWithFormat:@"%i:%02i:%02i", hmhour, hmmin, hmsec];
+    [self.view endEditing:YES];
 }
 
 @end
