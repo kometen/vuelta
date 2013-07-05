@@ -10,4 +10,14 @@
 
 @interface VueltaViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UITextField *numberOfLapsField;
+@property (nonatomic, strong) IBOutlet UITextField *metersPerLapField;
+@property (nonatomic, strong) IBOutlet UITextField *minutesPerKmField;
+@property (nonatomic, strong) IBOutlet UITextField *secondsPerKmField;
+@property (nonatomic, strong) IBOutlet UILabel *totalDistanceField;
+@property (nonatomic, strong) IBOutlet UILabel *secondsPerLapField;
+@property (nonatomic, strong) IBOutlet UILabel *estimatedTimeHalfMarathonField;
+
+-(IBAction)calculate;
+
 @end

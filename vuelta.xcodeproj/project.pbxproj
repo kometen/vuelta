@@ -455,6 +455,7 @@
 				484077AD1786063E00B7298D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		484077AE1786063E00B7298D /* Build configuration list for PBXNativeTarget "vueltaTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +464,7 @@
 				484077B01786063E00B7298D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
