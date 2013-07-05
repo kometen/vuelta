@@ -106,6 +106,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Lap Counter" id="S1g-eY-5xs">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="bvF-6P-pL6">
+                            <connections>
+                                <action selector="clear" destination="vXZ-lx-hvc" id="S0x-CM-NaX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Calculate" id="MfM-bc-p3l">
                             <connections>
                                 <action selector="calculate" destination="vXZ-lx-hvc" id="W4K-O2-ddi"/>
@@ -125,6 +130,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="359" y="-289"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="eCp-QP-Z8H">
+            <objects>
+                <tableViewController id="g01-dm-xnG" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yWQ-lH-78B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6Xr-B5-jv5">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g01-dm-xnG" id="za5-rb-VVN"/>
+                            <outlet property="delegate" destination="g01-dm-xnG" id="3R4-mO-6hT"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-mo-5ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uhJ-zk-daL">
@@ -151,6 +186,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VueltaViewController.h"/>
             <relationships>
                 <relationship kind="action" name="calculate"/>
+                <relationship kind="action" name="clear"/>
                 <relationship kind="outlet" name="estimatedTimeHalfMarathonField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="metersPerLapField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="minutesPerKmField" candidateClass="UITextField"/>

@@ -48,4 +48,14 @@
     [self.view endEditing:YES];
 }
 
+-(void)clear {
+    self.numberOfLapsField.text = nil;
+    self.minutesPerKmField.text = nil;
+    self.secondsPerKmField.text = nil;
+    self.metersPerLapField.text = nil;
+    self.secondsPerLapField.text = nil;
+    self.totalDistanceField.text = nil;
+    self.estimatedTimeHalfMarathonField.text = nil;
+}
+
 @end

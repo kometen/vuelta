@@ -19,5 +19,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *estimatedTimeHalfMarathonField;
 
 -(IBAction)calculate;
+-(IBAction)clear;
 
 @end
