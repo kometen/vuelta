@@ -140,12 +140,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6Xr-B5-jv5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Laptimes" id="6Xr-B5-jv5">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laptimes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjq-Vp-E4m">
+                                            <rect key="frame" x="20" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -182,25 +191,6 @@
             <point key="canvasLocation" x="-128" y="-289"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LaptimesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LaptimesViewController.h"/>
-        </class>
-        <class className="VueltaViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VueltaViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="calculate"/>
-                <relationship kind="action" name="clear"/>
-                <relationship kind="outlet" name="estimatedHalfMarathonTimeField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="metersPerLapField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="minutesPerKmField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numberOfLapsField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="secondsPerKmField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="secondsPerLapField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalDistanceField" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
