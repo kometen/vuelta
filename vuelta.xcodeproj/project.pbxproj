@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482BC19C1789E20900377BAB /* Lap.m in Sources */ = {isa = PBXBuildFile; fileRef = 482BC19B1789E20900377BAB /* Lap.m */; };
+		482BC19D1789E20900377BAB /* Lap.m in Sources */ = {isa = PBXBuildFile; fileRef = 482BC19B1789E20900377BAB /* Lap.m */; };
 		4840777D1786063E00B7298D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4840777C1786063E00B7298D /* Foundation.framework */; };
 		4840777F1786063E00B7298D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4840777E1786063E00B7298D /* CoreGraphics.framework */; };
 		484077811786063E00B7298D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484077801786063E00B7298D /* UIKit.framework */; };
@@ -21,6 +23,8 @@
 		4840779E1786063E00B7298D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484077801786063E00B7298D /* UIKit.framework */; };
 		484077A61786063E00B7298D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 484077A41786063E00B7298D /* InfoPlist.strings */; };
 		484077A81786063E00B7298D /* vueltaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 484077A71786063E00B7298D /* vueltaTests.m */; };
+		4891AAA5178A1CD6009B0747 /* LaptimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */; };
+		4891AAA6178A1CD6009B0747 /* LaptimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		482BC19A1789E20900377BAB /* Lap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lap.h; sourceTree = "<group>"; };
+		482BC19B1789E20900377BAB /* Lap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lap.m; sourceTree = "<group>"; };
 		484077791786063E00B7298D /* vuelta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vuelta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4840777C1786063E00B7298D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4840777E1786063E00B7298D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +59,8 @@
 		484077A31786063E00B7298D /* vueltaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "vueltaTests-Info.plist"; sourceTree = "<group>"; };
 		484077A51786063E00B7298D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		484077A71786063E00B7298D /* vueltaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vueltaTests.m; sourceTree = "<group>"; };
+		4891AAA3178A1CD6009B0747 /* LaptimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaptimesViewController.h; sourceTree = "<group>"; };
+		4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaptimesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,10 @@
 				4840778E1786063E00B7298D /* Main.storyboard */,
 				484077911786063E00B7298D /* VueltaViewController.h */,
 				484077921786063E00B7298D /* VueltaViewController.m */,
+				482BC19A1789E20900377BAB /* Lap.h */,
+				482BC19B1789E20900377BAB /* Lap.m */,
+				4891AAA3178A1CD6009B0747 /* LaptimesViewController.h */,
+				4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */,
 				484077941786063E00B7298D /* Images.xcassets */,
 				484077831786063E00B7298D /* Supporting Files */,
 			);
@@ -251,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				484077891786063E00B7298D /* main.m in Sources */,
+				4891AAA5178A1CD6009B0747 /* LaptimesViewController.m in Sources */,
+				482BC19C1789E20900377BAB /* Lap.m in Sources */,
 				4840778D1786063E00B7298D /* VueltaAppDelegate.m in Sources */,
 				484077931786063E00B7298D /* VueltaViewController.m in Sources */,
 			);
@@ -261,6 +275,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				484077A81786063E00B7298D /* vueltaTests.m in Sources */,
+				4891AAA6178A1CD6009B0747 /* LaptimesViewController.m in Sources */,
+				482BC19D1789E20900377BAB /* Lap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

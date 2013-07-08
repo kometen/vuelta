@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.9"/>
     </dependencies>
     <scenes>
-        <!--Vuelta View Controller - Lap Counter-->
+        <!--Vuelta View Controller - Laps-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="VueltaViewController" sceneMemberID="viewController">
@@ -105,20 +105,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Lap Counter" id="S1g-eY-5xs">
+                    <navigationItem key="navigationItem" title="Laps" id="S1g-eY-5xs">
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="bvF-6P-pL6">
                             <connections>
                                 <action selector="clear" destination="vXZ-lx-hvc" id="S0x-CM-NaX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Calculate" id="MfM-bc-p3l">
+                        <barButtonItem key="rightBarButtonItem" title="Laptimes" id="MfM-bc-p3l">
                             <connections>
-                                <action selector="calculate" destination="vXZ-lx-hvc" id="W4K-O2-ddi"/>
+                                <segue destination="g01-dm-xnG" kind="push" identifier="Laptimes" id="ChR-5f-bJn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="estimatedTimeHalfMarathonField" destination="JG0-wS-eSu" id="a4y-2T-gO2"/>
+                        <outlet property="estimatedHalfMarathonTimeField" destination="JG0-wS-eSu" id="1pR-rP-qse"/>
                         <outlet property="metersPerLapField" destination="6uk-hV-6aK" id="OOW-Gf-dG7"/>
                         <outlet property="minutesPerKmField" destination="RvN-R3-Iir" id="d12-VG-Udq"/>
                         <outlet property="numberOfLapsField" destination="wBY-ab-dxI" id="Yk2-hf-RLC"/>
@@ -131,12 +131,12 @@
             </objects>
             <point key="canvasLocation" x="359" y="-289"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Laptimes View Controller - Laptimes-->
         <scene sceneID="eCp-QP-Z8H">
             <objects>
-                <tableViewController id="g01-dm-xnG" sceneMemberID="viewController">
+                <tableViewController id="g01-dm-xnG" customClass="LaptimesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yWQ-lH-78B">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -156,6 +156,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Laptimes" id="sdd-db-utU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-mo-5ML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,12 +183,15 @@
         </scene>
     </scenes>
     <classes>
+        <class className="LaptimesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LaptimesViewController.h"/>
+        </class>
         <class className="VueltaViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VueltaViewController.h"/>
             <relationships>
                 <relationship kind="action" name="calculate"/>
                 <relationship kind="action" name="clear"/>
-                <relationship kind="outlet" name="estimatedTimeHalfMarathonField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="estimatedHalfMarathonTimeField" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="metersPerLapField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="minutesPerKmField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="numberOfLapsField" candidateClass="UITextField"/>

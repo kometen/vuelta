@@ -16,7 +16,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *secondsPerKmField;
 @property (nonatomic, strong) IBOutlet UILabel *totalDistanceField;
 @property (nonatomic, strong) IBOutlet UILabel *secondsPerLapField;
-@property (nonatomic, strong) IBOutlet UILabel *estimatedTimeHalfMarathonField;
+@property (nonatomic, strong) IBOutlet UILabel *estimatedHalfMarathonTimeField;
 
 -(IBAction)calculate;
 -(IBAction)clear;

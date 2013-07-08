@@ -7,12 +7,15 @@
 //
 
 #import "VueltaViewController.h"
+#import "Lap.h"
 
 @interface VueltaViewController ()
 
 @end
 
-@implementation VueltaViewController
+@implementation VueltaViewController {
+    Lap *lap;
+}
 
 - (void)viewDidLoad
 {
@@ -32,19 +35,14 @@
 }
 
 -(void)calculate {
-    int laps = [self.numberOfLapsField.text integerValue];
-    int minutes = [self.minutesPerKmField.text integerValue];
-    int seconds = [self.secondsPerKmField.text integerValue];
-    int distance = [self.metersPerLapField.text integerValue];
-    int secondsPerLap = (minutes * 60 + seconds) / (1000.0/distance);
-    int totalDistance = laps * distance;
-    int hmsec = (minutes * 60 + seconds) * 21.1;    //hm = half marathon
-    int hmhour = hmsec / 3600;
-    int hmmin = (hmsec - hmhour * 3600) / 60;
-    hmsec = hmsec - hmhour * 3600 - hmmin * 60;
-    self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", secondsPerLap];
-    self.totalDistanceField.text = [NSString stringWithFormat:@"%i", totalDistance];
-    self.estimatedTimeHalfMarathonField.text = [NSString stringWithFormat:@"%i:%02i:%02i", hmhour, hmmin, hmsec];
+    lap = [[Lap alloc] init];
+    lap.numberOfLaps = [self.numberOfLapsField.text integerValue];
+    lap.metersPerLap = [self.metersPerLapField.text integerValue];
+    lap.minutesPerKm = [self.minutesPerKmField.text integerValue];
+    lap.secondsPerKm = [self.secondsPerKmField.text integerValue];
+    self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", [lap getSecondsPerLap]];
+    self.totalDistanceField.text = [NSString stringWithFormat:@"%i", [lap getTotalDistance]];
+    self.estimatedHalfMarathonTimeField.text = [lap getEstimatedHalfMarathonTime];
     [self.view endEditing:YES];
 }
 
@@ -55,7 +53,13 @@
     self.metersPerLapField.text = nil;
     self.secondsPerLapField.text = nil;
     self.totalDistanceField.text = nil;
-    self.estimatedTimeHalfMarathonField.text = nil;
+    self.estimatedHalfMarathonTimeField.text = nil;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Laptimes"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+    }
 }
 
 @end
