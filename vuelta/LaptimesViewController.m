@@ -7,6 +7,7 @@
 //
 
 #import "LaptimesViewController.h"
+#import "Lap.h"
 
 @interface LaptimesViewController ()
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"meters per lap: %i", self.lap.metersPerLap);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -7,6 +7,7 @@
 //
 
 #import "VueltaViewController.h"
+#import "LaptimesViewController.h"
 #import "Lap.h"
 
 @interface VueltaViewController ()
@@ -34,7 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)calculate {
+-(void)laptimes {
     lap = [[Lap alloc] init];
     lap.numberOfLaps = [self.numberOfLapsField.text integerValue];
     lap.metersPerLap = [self.metersPerLapField.text integerValue];
@@ -56,9 +57,12 @@
     self.estimatedHalfMarathonTimeField.text = nil;
 }
 
+// http://stackoverflow.com/questions/5210535/passing-data-between-view-controllers
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Laptimes"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
+        [self laptimes];
+        LaptimesViewController *controller = (LaptimesViewController *)segue.destinationViewController;
+        controller.lap = lap;
     }
 }
 

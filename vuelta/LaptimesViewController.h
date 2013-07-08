@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Lap.h"
 
 @interface LaptimesViewController : UITableViewController
+
+@property (nonatomic, strong) Lap *lap;
 
 @end
