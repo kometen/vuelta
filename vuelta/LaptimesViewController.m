@@ -26,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"meters per lap: %i, laps: %i", self.lap.metersPerLap, self.lap.numberOfLaps);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +40,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    int secondsPerLap = [self.lap getSecondsPerLap];
+    
     static NSString *CellIdentifier = @"Laptimes";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    
+    label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
     
     // Configure the cell...
     

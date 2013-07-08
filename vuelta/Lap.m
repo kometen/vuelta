@@ -28,4 +28,11 @@
     return [NSString stringWithFormat:@"%i:%02i:%02i", hmhour, hmmin, hmsec];
 }
 
+-(NSString *)getLapTime:(int)lap secondsPerLap:(int)secondsPerLap {
+    int total = lap * secondsPerLap;
+    int minute = total / 60;
+    int seconds = total - (minute * 60);
+    return [NSString stringWithFormat:@"lap %i, %02i min %02i sec", lap, minute, seconds];
+}
+
 @end
