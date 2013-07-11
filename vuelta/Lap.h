@@ -19,7 +19,7 @@
 -(int)getTotalDistance;
 -(NSString *)getEstimatedHalfMarathonTime;
 -(NSString *)getLapTime:(int)lap secondsPerLap:(int)secondsPerLap;
--(NSString *)getLapTime:(int)lap secondsPerLap:(int)secondsPerLap delta:(int)delta;
 -(NSString *)getLapTimeShortForm:(int)lap secondsPerLap:(int)secondsPerLap;
+-(NSString *)getElapsedTimeFromSeconds:(int)totalSeconds;
 
 @end

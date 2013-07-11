@@ -35,18 +35,23 @@
     return [NSString stringWithFormat:@"lap %i, %02i min %02i sec", lap, minute, seconds];
 }
 
--(NSString *)getLapTime:(int)lap secondsPerLap:(int)secondsPerLap delta:(int)delta {
-    int total = lap * secondsPerLap;
-    int minute = total / 60;
-    int seconds = total - (minute * 60);
-    return [NSString stringWithFormat:@"lap %i, %02i min %02i sec, %i", lap, minute, seconds, delta];
-}
-
 -(NSString *)getLapTimeShortForm:(int)lap secondsPerLap:(int)secondsPerLap {
     int total = lap * secondsPerLap;
     int minute = total / 60;
     int seconds = total - (minute * 60);
     return [NSString stringWithFormat:@"%02i:%02i", minute, seconds];
+}
+
+// http://stackoverflow.com/questions/1025192/memory-leaks-formatting-a-string-to-display-time-each-second
+-(NSString *)getElapsedTimeFromSeconds:(int)totalSeconds {
+    int hours = totalSeconds / 3600;
+    int minutes = totalSeconds / 60;
+    int seconds = totalSeconds % 60;
+    if (hours > 0) {
+        return [NSString stringWithFormat:@"%i:%02i:%02i", hours, minutes, seconds];
+    } else {
+        return [NSString stringWithFormat:@"%02i:%02i", minutes, seconds];
+    }
 }
 
 @end
