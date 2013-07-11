@@ -47,7 +47,7 @@
     [self.view endEditing:YES];
 }
 
--(void)clear {
+-(IBAction)clear {
     self.numberOfLapsField.text = nil;
     self.minutesPerKmField.text = nil;
     self.secondsPerKmField.text = nil;

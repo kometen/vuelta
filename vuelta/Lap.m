@@ -35,4 +35,18 @@
     return [NSString stringWithFormat:@"lap %i, %02i min %02i sec", lap, minute, seconds];
 }
 
+-(NSString *)getLapTime:(int)lap secondsPerLap:(int)secondsPerLap delta:(int)delta {
+    int total = lap * secondsPerLap;
+    int minute = total / 60;
+    int seconds = total - (minute * 60);
+    return [NSString stringWithFormat:@"lap %i, %02i min %02i sec, %i", lap, minute, seconds, delta];
+}
+
+-(NSString *)getLapTimeShortForm:(int)lap secondsPerLap:(int)secondsPerLap {
+    int total = lap * secondsPerLap;
+    int minute = total / 60;
+    int seconds = total - (minute * 60);
+    return [NSString stringWithFormat:@"%02i:%02i", minute, seconds];
+}
+
 @end

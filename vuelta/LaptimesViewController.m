@@ -13,7 +13,13 @@
 
 @end
 
-@implementation LaptimesViewController
+@implementation LaptimesViewController {
+    NSTimer *pollingTimer;
+    //NSTimeInterval delta;
+    NSDateFormatter *dateFormatter;
+    NSDate *now, *today;
+    int delta, index, previous, secondsPerLap;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +32,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    secondsPerLap = [self.lap getSecondsPerLap];
+    previous = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,18 +49,37 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int secondsPerLap = [self.lap getSecondsPerLap];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
     
     static NSString *CellIdentifier = @"Laptimes";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
+    UILabel *timeLabel = (UILabel *)[cell viewWithTag:1001];
     
     label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
-    
-    // Configure the cell...
+    timeLabel.text = [NSString stringWithFormat:@"%i", (int)delta];
     
     return cell;
+}
+
+-(void)pollTime:(NSTimer *)timer {
+    now = [[NSDate alloc] init];
+    delta = (int)[now timeIntervalSinceDate:today];
+    index = delta / secondsPerLap;
+//    NSLog(@"delta: %i", delta);
+    if (delta != previous) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        previous = delta;
+    }
+}
+
+-(IBAction)startTimer {
+    [pollingTimer invalidate];
+    today = [[NSDate alloc] init];
+    pollingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(pollTime:) userInfo:nil repeats:YES];
+    [pollingTimer fire];
 }
 
 /*
