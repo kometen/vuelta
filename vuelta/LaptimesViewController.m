@@ -16,7 +16,8 @@
 @implementation LaptimesViewController {
     NSTimer *pollingTimer;
     NSDate *now, *today;
-    int delta, index, previous, secondsPerLap;
+    int delta, index, previousDelta, previousIndex, secondsPerLap;
+    BOOL firstTimeInNewIndexpathRow;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,7 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     secondsPerLap = [self.lap getSecondsPerLap];
-    previous = 0;
+    previousDelta = 0;
+    previousIndex = -1;
+    firstTimeInNewIndexpathRow = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +54,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
     UILabel *timeLabel = (UILabel *)[cell viewWithTag:1001];
+
+    if ((delta % 10 == 0) && (delta > 0)) {       // Bold every n'th second
+        timeLabel.font = [UIFont boldSystemFontOfSize:18];
+    } else if (firstTimeInNewIndexpathRow == YES) {
+        timeLabel.font = [UIFont boldSystemFontOfSize:18];
+        firstTimeInNewIndexpathRow = NO;
+    } else {
+        timeLabel.font = [UIFont systemFontOfSize:17];
+    }
     
     label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
     timeLabel.text = [self.lap getElapsedTimeFromSeconds:delta];
@@ -58,17 +70,25 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 // http://stackoverflow.com/questions/16220777/accessing-cell-attributes-outside-of-cellforrowatindexpath
 -(void)pollTime:(NSTimer *)timer {
     now = [[NSDate alloc] init];
     delta = (int)[now timeIntervalSinceDate:today];
-    index = delta / secondsPerLap;
-    if (delta != previous && index < self.lap.numberOfLaps) {
+    index = delta / secondsPerLap;  // Index equals to indexPath.row
+    if (delta != previousDelta && index < self.lap.numberOfLaps) {
+        if (previousIndex != index) {
+            firstTimeInNewIndexpathRow = YES;
+        }
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        previous = delta;
+        previousIndex = index;
+        previousDelta = delta;
     }
-    if (delta != previous && index >= self.lap.numberOfLaps) {
+    if (delta != previousDelta && index >= self.lap.numberOfLaps) {
         self.title = [self.lap getElapsedTimeFromSeconds:delta];
     }
 }
