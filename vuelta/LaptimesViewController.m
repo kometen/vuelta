@@ -58,9 +58,11 @@
     if ((delta % 10 == 0) && (delta > 0)) {       // Bold every n'th second
         timeLabel.font = [UIFont boldSystemFontOfSize:18];
     } else if (firstTimeInNewIndexpathRow == YES) {
+        label.font = [UIFont boldSystemFontOfSize:18];
         timeLabel.font = [UIFont boldSystemFontOfSize:18];
         firstTimeInNewIndexpathRow = NO;
     } else {
+        label.font = [UIFont systemFontOfSize:17];
         timeLabel.font = [UIFont systemFontOfSize:17];
     }
     
