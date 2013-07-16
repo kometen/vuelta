@@ -56,14 +56,19 @@
     UILabel *timeLabel = (UILabel *)[cell viewWithTag:1001];
 
     if ((delta % 10 == 0) && (delta > 0)) {       // Bold every n'th second
-        timeLabel.font = [UIFont boldSystemFontOfSize:18];
+        timeLabel.textColor = [UIColor blueColor];
+        timeLabel.font = [UIFont boldSystemFontOfSize:17];
     } else if (firstTimeInNewIndexpathRow == YES) {
-        label.font = [UIFont boldSystemFontOfSize:18];
-        timeLabel.font = [UIFont boldSystemFontOfSize:18];
+        label.font = [UIFont boldSystemFontOfSize:17];
+        timeLabel.font = [UIFont boldSystemFontOfSize:17];
+        label.textColor = [UIColor blueColor];
+        timeLabel.textColor = [UIColor blueColor];
         firstTimeInNewIndexpathRow = NO;
     } else {
         label.font = [UIFont systemFontOfSize:17];
         timeLabel.font = [UIFont systemFontOfSize:17];
+        label.textColor = [UIColor blackColor];
+        timeLabel.textColor = [UIColor blackColor];
     }
     
     label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
@@ -96,10 +101,13 @@
 }
 
 -(IBAction)startTimer {
+    self.startBarButton.title = @"Reset";
     [pollingTimer invalidate];
     today = [[NSDate alloc] init];
     pollingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(pollTime:) userInfo:nil repeats:YES];
     [pollingTimer fire];
+    previousIndex = -1;
+    [self.tableView reloadData];
 }
 
 /*

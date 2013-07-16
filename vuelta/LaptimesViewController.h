@@ -12,6 +12,7 @@
 @interface LaptimesViewController : UITableViewController
 
 @property (nonatomic, strong) Lap *lap;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *startBarButton;
 
 -(IBAction)startTimer;
 
