@@ -57,7 +57,8 @@
     self.estimatedHalfMarathonTimeField.text = nil;
 }
 
-// http://stackoverflow.com/questions/5210535/passing-data-between-view-controllers
+// stackoverflow.com/questions/5210535/passing-data-between-view-controllers
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Laptimes"]) {
         [self laptimes];

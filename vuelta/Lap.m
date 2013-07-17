@@ -42,7 +42,7 @@
     return [NSString stringWithFormat:@"%02i:%02i", minute, seconds];
 }
 
-// http://stackoverflow.com/questions/1025192/memory-leaks-formatting-a-string-to-display-time-each-second
+// stackoverflow.com/questions/1025192/memory-leaks-formatting-a-string-to-display-time-each-second
 -(NSString *)getElapsedTimeFromSeconds:(int)totalSeconds {
     int hours = totalSeconds / 3600;
     int minutes = totalSeconds / 60;
