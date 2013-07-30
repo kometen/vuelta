@@ -21,7 +21,6 @@
     NSDate *now, *today;
     int delta, index, previousDelta, previousIndex, secondsPerLap;
     BOOL firstTimeInNewIndexpathRow;
-//    AVAudioPlayer *tenSecondAvSound;
     AVAudioPlayer *zeroSecondAvSound;
 }
 
@@ -42,9 +41,6 @@
     previousDelta = 0;
     previousIndex = -1;
     firstTimeInNewIndexpathRow = NO;
-//    NSURL *tenSecondSoundURL = [[NSBundle mainBundle] URLForResource:@"tap-crisp" withExtension:@"aif"];
-//    tenSecondAvSound = [[AVAudioPlayer alloc] initWithContentsOfURL:tenSecondSoundURL error:nil];
-//    [tenSecondAvSound prepareToPlay];
     NSURL *zeroSecondSoundURL = [[NSBundle mainBundle] URLForResource:@"tap-wooden" withExtension:@"aif"];
     zeroSecondAvSound = [[AVAudioPlayer alloc] initWithContentsOfURL:zeroSecondSoundURL error:nil];
     [zeroSecondAvSound prepareToPlay];
@@ -81,7 +77,6 @@
         label.textColor = [UIColor blueColor];
         timeLabel.textColor = [UIColor blueColor];
         firstTimeInNewIndexpathRow = NO;
-        [zeroSecondAvSound play];
     } else {
         label.font = [UIFont systemFontOfSize:17];
         timeLabel.font = [UIFont systemFontOfSize:17];
@@ -89,10 +84,9 @@
         timeLabel.textColor = [UIColor blackColor];
     }
     
-/*    if ((secondsPerLap * (index + 1) - delta) == 10) { // Didn't work out well.
-        [tenSecondAvSound setNumberOfLoops:2];
-        [tenSecondAvSound play];
-    }*/
+    if ((delta % secondsPerLap == 0) && delta > 0) {
+        [zeroSecondAvSound play];
+    }
     
     label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
     timeLabel.text = [self.lap getElapsedTimeFromSeconds:delta];
