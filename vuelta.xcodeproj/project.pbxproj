@@ -66,6 +66,7 @@
 		484077A71786063E00B7298D /* vueltaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vueltaTests.m; sourceTree = "<group>"; };
 		4891AAA3178A1CD6009B0747 /* LaptimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaptimesViewController.h; sourceTree = "<group>"; };
 		4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaptimesViewController.m; sourceTree = "<group>"; };
+		489724F117A861AE00100BE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		48AC5B37179731F8001092F4 /* tap-crisp.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-crisp.aif"; sourceTree = "<group>"; };
 		48AC5B3A179752E4001092F4 /* tap-wooden.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-wooden.aif"; sourceTree = "<group>"; };
 		48C7911F1795EADD0081BE8F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -118,6 +119,7 @@
 		4840777B1786063E00B7298D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				489724F117A861AE00100BE9 /* AVFoundation.framework */,
 				48C7911F1795EADD0081BE8F /* AudioToolbox.framework */,
 				4840777C1786063E00B7298D /* Foundation.framework */,
 				4840777E1786063E00B7298D /* CoreGraphics.framework */,

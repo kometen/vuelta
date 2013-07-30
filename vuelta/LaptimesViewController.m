@@ -43,6 +43,7 @@
     firstTimeInNewIndexpathRow = NO;
     NSURL *zeroSecondSoundURL = [[NSBundle mainBundle] URLForResource:@"tap-wooden" withExtension:@"aif"];
     zeroSecondAvSound = [[AVAudioPlayer alloc] initWithContentsOfURL:zeroSecondSoundURL error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [zeroSecondAvSound prepareToPlay];
 }
 
