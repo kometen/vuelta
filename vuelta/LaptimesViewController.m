@@ -69,10 +69,7 @@
     UILabel *label = (UILabel *)[cell viewWithTag:1000];
     UILabel *timeLabel = (UILabel *)[cell viewWithTag:1001];
 
-    if ((delta % 10 == 0) && (delta > 0)) {       // Bold every n'th second
-        timeLabel.textColor = [UIColor blueColor];
-        timeLabel.font = [UIFont boldSystemFontOfSize:17];
-    } else if (firstTimeInNewIndexpathRow == YES) {
+    if (firstTimeInNewIndexpathRow == YES) {
         label.font = [UIFont boldSystemFontOfSize:17];
         timeLabel.font = [UIFont boldSystemFontOfSize:17];
         label.textColor = [UIColor blueColor];
@@ -89,8 +86,8 @@
         [zeroSecondAvSound play];
     }
     
-    label.text = [self.lap getLapTime:(indexPath.row + 1) secondsPerLap:secondsPerLap];
-    timeLabel.text = [self.lap getElapsedTimeFromSeconds:delta];
+    label.text = [self.lap getLapTime:indexPath.row secondsPerLap:secondsPerLap];
+    self.title = [self.lap getElapsedTimeFromSeconds:delta];
     
     return cell;
 }
