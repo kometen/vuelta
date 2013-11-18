@@ -8,6 +8,7 @@
 
 #import "VueltaViewController.h"
 #import "LaptimesViewController.h"
+#import "ShowLaptimesViewController.h"
 #import "Lap.h"
 
 @interface VueltaViewController ()
@@ -62,7 +63,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Laptimes"]) {
         [self laptimes];
-        LaptimesViewController *controller = (LaptimesViewController *)segue.destinationViewController;
+        NSLog(@"prepareForSegue, get seconds per lap: %d", [lap getSecondsPerLap]);
+        UINavigationController *navigationController = segue.destinationViewController;
+        ShowLaptimesViewController *controller = (ShowLaptimesViewController *)navigationController.topViewController;
         controller.lap = lap;
     }
 }

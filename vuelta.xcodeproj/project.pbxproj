@@ -29,6 +29,7 @@
 		48AC5B39179731F8001092F4 /* tap-crisp.aif in Resources */ = {isa = PBXBuildFile; fileRef = 48AC5B37179731F8001092F4 /* tap-crisp.aif */; };
 		48AC5B3B179752E4001092F4 /* tap-wooden.aif in Resources */ = {isa = PBXBuildFile; fileRef = 48AC5B3A179752E4001092F4 /* tap-wooden.aif */; };
 		48AC5B3C179752E4001092F4 /* tap-wooden.aif in Resources */ = {isa = PBXBuildFile; fileRef = 48AC5B3A179752E4001092F4 /* tap-wooden.aif */; };
+		48B4436B183A352E00E73C8A /* ShowLaptimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B4436A183A352E00E73C8A /* ShowLaptimesViewController.m */; };
 		48C791201795EADD0081BE8F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C7911F1795EADD0081BE8F /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		489724F117A861AE00100BE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		48AC5B37179731F8001092F4 /* tap-crisp.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-crisp.aif"; sourceTree = "<group>"; };
 		48AC5B3A179752E4001092F4 /* tap-wooden.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-wooden.aif"; sourceTree = "<group>"; };
+		48B44369183A352E00E73C8A /* ShowLaptimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowLaptimesViewController.h; sourceTree = "<group>"; };
+		48B4436A183A352E00E73C8A /* ShowLaptimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowLaptimesViewController.m; sourceTree = "<group>"; };
 		48C7911F1795EADD0081BE8F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -141,6 +144,8 @@
 				482BC19B1789E20900377BAB /* Lap.m */,
 				4891AAA3178A1CD6009B0747 /* LaptimesViewController.h */,
 				4891AAA4178A1CD6009B0747 /* LaptimesViewController.m */,
+				48B44369183A352E00E73C8A /* ShowLaptimesViewController.h */,
+				48B4436A183A352E00E73C8A /* ShowLaptimesViewController.m */,
 				48AC5B37179731F8001092F4 /* tap-crisp.aif */,
 				48AC5B3A179752E4001092F4 /* tap-wooden.aif */,
 				484077941786063E00B7298D /* Images.xcassets */,
@@ -287,6 +292,7 @@
 				4891AAA5178A1CD6009B0747 /* LaptimesViewController.m in Sources */,
 				482BC19C1789E20900377BAB /* Lap.m in Sources */,
 				4840778D1786063E00B7298D /* VueltaAppDelegate.m in Sources */,
+				48B4436B183A352E00E73C8A /* ShowLaptimesViewController.m in Sources */,
 				484077931786063E00B7298D /* VueltaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
