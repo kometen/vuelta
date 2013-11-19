@@ -42,9 +42,6 @@
     lap.metersPerLap = [self.metersPerLapField.text integerValue];
     lap.minutesPerKm = [self.minutesPerKmField.text integerValue];
     lap.secondsPerKm = [self.secondsPerKmField.text integerValue];
-    self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", [lap getSecondsPerLap]];
-    self.totalDistanceField.text = [NSString stringWithFormat:@"%i", [lap getTotalDistance]];
-    self.estimatedHalfMarathonTimeField.text = [lap getEstimatedHalfMarathonTime];
     [self.view endEditing:YES];
 }
 
@@ -53,9 +50,6 @@
     self.minutesPerKmField.text = nil;
     self.secondsPerKmField.text = nil;
     self.metersPerLapField.text = nil;
-    self.secondsPerLapField.text = nil;
-    self.totalDistanceField.text = nil;
-    self.estimatedHalfMarathonTimeField.text = nil;
 }
 
 // stackoverflow.com/questions/5210535/passing-data-between-view-controllers
@@ -63,7 +57,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Laptimes"]) {
         [self laptimes];
-        NSLog(@"prepareForSegue, get seconds per lap: %d", [lap getSecondsPerLap]);
         UINavigationController *navigationController = segue.destinationViewController;
         ShowLaptimesViewController *controller = (ShowLaptimesViewController *)navigationController.topViewController;
         controller.lap = lap;

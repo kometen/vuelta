@@ -13,4 +13,13 @@
 
 @property (nonatomic, strong) Lap *lap;
 
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *startBarButton;
+@property (nonatomic, strong) IBOutlet UILabel *numberofLapsField;
+@property (nonatomic, strong) IBOutlet UILabel *totalDistanceField;
+@property (nonatomic, strong) IBOutlet UILabel *secondsPerLapField;
+@property (nonatomic, strong) IBOutlet UILabel *estimatedHalfMarathonTimeField;
+@property (nonatomic, strong) IBOutlet UILabel *secondsPassedField;
+
+-(IBAction)startTimer;
+
 @end
