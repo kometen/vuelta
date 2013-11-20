@@ -16,7 +16,7 @@
 @implementation ShowLaptimesViewController {
     NSTimer *pollingTimer;
     NSDate *now, *today;
-    int delta, index, previousDelta, previousIndex, secondsPerLap;
+    int secondsElapsed, lapsCompleted, secondsPerLap, currentSecond, previousSecond;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    lapsCompleted = 0;
+    currentSecond = 0;
+    previousSecond = 0;
+    lapsCompleted = 0;
     self.numberofLapsField.text = [NSString stringWithFormat:@"%i", [self.lap numberOfLaps]];
     self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", [self.lap getSecondsPerLap]];
     self.totalDistanceField.text = [NSString stringWithFormat:@"%i", [self.lap getTotalDistance]];
@@ -47,16 +51,29 @@
 -(void)pollTime:(NSTimer *)timer
 {
     now = [[NSDate alloc] init];
-    delta = (int)[now timeIntervalSinceDate:today];
-    self.secondsPassedField.text = [NSString stringWithFormat:@"%i", delta];
+    secondsElapsed = (int)[now timeIntervalSinceDate:today];
+    
+    // Update rounds completed
+    currentSecond = secondsElapsed;
+    if (secondsElapsed % self.lap.getSecondsPerLap == 0 && secondsElapsed > 0) {
+        if (previousSecond != currentSecond) {
+            previousSecond = currentSecond;
+            lapsCompleted++;
+        }
+    }
+
+    self.secondsPassedField.text = [NSString stringWithFormat:@"%i", secondsElapsed];
+    self.roundsCompletedField.text = [NSString stringWithFormat:@"%i", lapsCompleted];
 }
 
+// startTimer calls pollTime at certain intervals to update progress
 -(void)startTimer
 {
     self.startBarButton.title = @"Reset";
     [pollingTimer invalidate];
+    lapsCompleted = 0;
     today = [[NSDate alloc] init];
-    pollingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(pollTime:) userInfo:nil repeats:YES];
+    pollingTimer = [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(pollTime:) userInfo:nil repeats:YES];
     [pollingTimer fire];
 }
 

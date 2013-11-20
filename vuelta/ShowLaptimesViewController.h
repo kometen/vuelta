@@ -19,6 +19,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *secondsPerLapField;
 @property (nonatomic, strong) IBOutlet UILabel *estimatedHalfMarathonTimeField;
 @property (nonatomic, strong) IBOutlet UILabel *secondsPassedField;
+@property (nonatomic, strong) IBOutlet UILabel *roundsCompletedField;
 
 -(IBAction)startTimer;
 
