@@ -170,8 +170,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-zK-vPW">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.99999999999999989" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-zK-vPW">
                                 <rect key="frame" x="20" y="192" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.99999999999999989" translatesAutoresizingMaskIntoConstraints="NO" id="c9m-cz-h4i">
+                                <rect key="frame" x="20" y="359" width="280" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                         </subviews>
@@ -188,6 +192,7 @@
                         <outlet property="estimatedHalfMarathonTimeField" destination="JG0-wS-eSu" id="0te-Fd-Zcq"/>
                         <outlet property="lapsCompletedField" destination="fGZ-z9-XYM" id="fjT-Fc-Zs0"/>
                         <outlet property="lapsCompletedProgress" destination="Sg2-zK-vPW" id="dPd-1W-fl3"/>
+                        <outlet property="secondsInLapProgress" destination="c9m-cz-h4i" id="ONM-pV-iVy"/>
                         <outlet property="secondsPerLapField" destination="WKN-Za-2vH" id="VmS-wp-NYp"/>
                         <outlet property="startBarButton" destination="XB7-Nt-mur" id="anf-jb-1QH"/>
                         <outlet property="timeElapsedField" destination="Blj-oB-7ys" id="VNZ-99-qqg"/>
