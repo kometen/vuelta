@@ -11,6 +11,8 @@
 
 @interface ShowLaptimesViewController ()
 
+@property (nonatomic, weak) IBOutlet UIProgressView *lapsCompletedProgress;
+
 @end
 
 @implementation ShowLaptimesViewController {
@@ -31,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    secondsElapsed = 0;
     lapsCompleted = 0;
     currentSecond = 0;
     previousSecond = 0;
@@ -38,7 +41,9 @@
     self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", [self.lap getSecondsPerLap]];
     self.totalDistanceField.text = [NSString stringWithFormat:@"%i", [self.lap getTotalDistance]];
     self.estimatedHalfMarathonTimeField.text = [self.lap getEstimatedHalfMarathonTime];
-    self.lapsCompletedField.text = [NSString stringWithFormat:@"%i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
+    self.timeElapsedField.text = [self.lap getElapsedTimeFromSeconds:secondsElapsed];
+    self.lapsCompletedField.text = [NSString stringWithFormat:@"Lap %i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
+    [_lapsCompletedProgress setProgress:0.0f];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,11 +63,12 @@
         if (previousSecond != currentSecond) {
             previousSecond = currentSecond;
             lapsCompleted++;
+            [_lapsCompletedProgress setProgress:(double)lapsCompleted / (double)self.lap.getNumberOfLaps];
         }
     }
 
     self.timeElapsedField.text = [self.lap getElapsedTimeFromSeconds:secondsElapsed];
-    self.lapsCompletedField.text = [NSString stringWithFormat:@"%i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
+    self.lapsCompletedField.text = [NSString stringWithFormat:@"Lap %i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
 }
 
 // startTimer calls pollTime at certain intervals to update progress
