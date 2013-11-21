@@ -38,7 +38,7 @@
 
 -(void)laptimes {
     lap = [[Lap alloc] init];
-    lap.numberOfLaps = [self.numberOfLapsField.text integerValue];
+    lap.getNumberOfLaps = [self.numberOfLapsField.text integerValue];
     lap.metersPerLap = [self.metersPerLapField.text integerValue];
     lap.minutesPerKm = [self.minutesPerKmField.text integerValue];
     lap.secondsPerKm = [self.secondsPerKmField.text integerValue];

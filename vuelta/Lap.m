@@ -17,7 +17,7 @@
 }
 
 -(int)getTotalDistance {
-    return self.numberOfLaps * self.metersPerLap;
+    return self.getNumberOfLaps * self.metersPerLap;
 }
 
 -(NSString *)getEstimatedHalfMarathonTime {

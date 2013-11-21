@@ -35,11 +35,10 @@
     currentSecond = 0;
     previousSecond = 0;
     lapsCompleted = 0;
-    self.numberofLapsField.text = [NSString stringWithFormat:@"%i", [self.lap numberOfLaps]];
     self.secondsPerLapField.text = [NSString stringWithFormat:@"%i", [self.lap getSecondsPerLap]];
     self.totalDistanceField.text = [NSString stringWithFormat:@"%i", [self.lap getTotalDistance]];
     self.estimatedHalfMarathonTimeField.text = [self.lap getEstimatedHalfMarathonTime];
-	// Do any additional setup after loading the view.
+    self.lapsCompletedField.text = [NSString stringWithFormat:@"%i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,8 +61,8 @@
         }
     }
 
-    self.secondsPassedField.text = [NSString stringWithFormat:@"%i", secondsElapsed];
-    self.roundsCompletedField.text = [NSString stringWithFormat:@"%i", lapsCompleted];
+    self.timeElapsedField.text = [self.lap getElapsedTimeFromSeconds:secondsElapsed];
+    self.lapsCompletedField.text = [NSString stringWithFormat:@"%i / %i", lapsCompleted, [self.lap getNumberOfLaps]];
 }
 
 // startTimer calls pollTime at certain intervals to update progress

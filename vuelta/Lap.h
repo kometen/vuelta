@@ -10,7 +10,7 @@
 
 @interface Lap : NSObject
 
-@property (nonatomic) int numberOfLaps;
+@property (nonatomic) int getNumberOfLaps;
 @property (nonatomic) int metersPerLap;
 @property (nonatomic) int minutesPerKm;
 @property (nonatomic) int secondsPerKm;

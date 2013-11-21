@@ -59,7 +59,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.lap.numberOfLaps;
+    return self.lap.getNumberOfLaps;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,7 +102,7 @@
     now = [[NSDate alloc] init];
     delta = (int)[now timeIntervalSinceDate:today];
     index = delta / secondsPerLap;  // Index equals to indexPath.row
-    if (delta != previousDelta && index < self.lap.numberOfLaps) {
+    if (delta != previousDelta && index < self.lap.getNumberOfLaps) {
         if (previousIndex != index) {
             firstTimeInNewIndexpathRow = YES;
         }
@@ -111,7 +111,7 @@
         previousIndex = index;
         previousDelta = delta;
     }
-    if (delta != previousDelta && index >= self.lap.numberOfLaps) {
+    if (delta != previousDelta && index >= self.lap.getNumberOfLaps) {
         self.title = [self.lap getElapsedTimeFromSeconds:delta];
     }
 }
